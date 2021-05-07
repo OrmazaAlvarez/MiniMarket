@@ -14,13 +14,11 @@ namespace MiniMarketBackEnd.Controllers
     [Route("products")]
     public class ProductController : ControllerBase
     {
-        private readonly ILogger<DefaultController> _logger;
         private readonly IProductQueryService _productQuery;
         private readonly IProductCommandService _productCommand;
 
-        public ProductController( ILogger<DefaultController> logger, IProductQueryService productQuery, IProductCommandService productCommand)
+        public ProductController( IProductQueryService productQuery, IProductCommandService productCommand)
         {
-            _logger = logger;
             _productQuery = productQuery;
             _productCommand = productCommand;
         }

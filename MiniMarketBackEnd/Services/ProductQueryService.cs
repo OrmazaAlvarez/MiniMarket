@@ -34,7 +34,8 @@ namespace MiniMarketBackEnd.Services
 
         public async Task<ProductDto> GetAsync(int id)
         {
-            return (await _context.Products.FromSqlInterpolated($"EXECUTE [dbo].Get_Products {id}").ToListAsync()).First().MapTo<ProductDto>();
+            var list = await _context.Products.FromSqlInterpolated($"EXECUTE [dbo].Get_Products {id}").ToListAsync();
+            return list.First().MapTo<ProductDto>();
         }
     }
 }

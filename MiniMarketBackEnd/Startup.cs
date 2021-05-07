@@ -32,6 +32,8 @@ namespace MiniMarketBackEnd
                 });
             });
             services.AddDbContext<MiniMarketDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MiniMarketWebApiDev")));
+            services.AddTransient<ICategoryQueryService, CategoryQueryService>();
+            services.AddTransient<ISupplierQueryService, SupplierQueryService>();
             services.AddTransient<IProductQueryService, ProductQueryService>();
             services.AddTransient<IProductCommandService, ProductCommandService>();
             services.AddTransient<IStockQueryService, StockQueryService>();
